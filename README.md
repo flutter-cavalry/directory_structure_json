@@ -5,7 +5,7 @@ Converts the contents of a directory to JSON.
 
 ## Usage
 
-Suppose a directory structure:
+Suppose a directory structure like this:
 
 ```
 -- a.txt
@@ -34,3 +34,7 @@ Prints:
   }
 }
 ```
+
+### Filter
+
+`directoryToMap` accepts an optional `filter` param to only process the data that returns true in `filter`.
