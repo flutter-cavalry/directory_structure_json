@@ -1,0 +1,15 @@
+name: directory_structure_map
+description: Converts the contents of a directory to JSON.
+version: 1.0.0
+repository: https://github.com/flutter-cavalry/directory_structure_map
+
+environment:
+  sdk: ">=2.19.0 <3.0.0"
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
+  tmp_path: ^1.0.2
+dependencies:
+  convert: ^3.1.1
+  path: ^1.8.3
