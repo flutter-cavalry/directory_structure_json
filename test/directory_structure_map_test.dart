@@ -44,4 +44,17 @@ void main() {
           'a': {'b': {}}
         });
   });
+
+  test('`noFileContents`', () async {
+    var dir = await setupEnv();
+    expect(await directoryToMap(dir, noFileContents: true), {
+      'emptyDir': {},
+      'root.txt': null,
+      'a': {
+        'b': {
+          'c': {'root.txt': null}
+        }
+      }
+    });
+  });
 }

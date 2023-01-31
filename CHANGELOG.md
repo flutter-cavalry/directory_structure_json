@@ -1,3 +1,7 @@
+## 1.2.0
+
+- Added `noFileContents` argument.
+
 ## 1.1.0
 
 - Added filter support.
