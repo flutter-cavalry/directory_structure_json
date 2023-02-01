@@ -35,6 +35,7 @@ Prints:
 }
 ```
 
-### Filter
+## Options
 
-`directoryToMap` accepts an optional `filter` param to only process the data that returns true in `filter`.
+- `filter`: only entries returned true in `filter` are processed
+- `noFileContents`: when true, files have a `null` value instead of a hex string
