@@ -47,7 +47,7 @@ void main() {
 
   test('`noFileContents`', () async {
     var dir = await setupEnv();
-    expect(await directoryToMap(dir, noFileContents: true), {
+    expect(await directoryToMap(dir, contentMode: FileContentMode.none), {
       'emptyDir': {},
       'root.txt': null,
       'a': {
