@@ -45,7 +45,7 @@ void main() {
         });
   });
 
-  test('`noFileContents`', () async {
+  test('ContentMode=none', () async {
     var dir = await setupEnv();
     expect(await directoryToMap(dir, contentMode: FileContentMode.none), {
       'emptyDir': {},
@@ -53,6 +53,19 @@ void main() {
       'a': {
         'b': {
           'c': {'root.txt': null}
+        }
+      }
+    });
+  });
+
+  test('ContentMode=text', () async {
+    var dir = await setupEnv();
+    expect(await directoryToMap(dir, contentMode: FileContentMode.text), {
+      'emptyDir': {},
+      'root.txt': 'hi',
+      'a': {
+        'b': {
+          'c': {'root.txt': 'deep'}
         }
       }
     });

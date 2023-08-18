@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:path/path.dart' as p;
 import 'package:convert/convert.dart';
 
-enum FileContentMode { hex, none }
+enum FileContentMode { hex, none, text }
 
 /// Converts a directory to a map.
 /// Options:
@@ -10,6 +10,7 @@ enum FileContentMode { hex, none }
 /// - [contentMode] - specifies how to handle file contents.
 ///   - [FileContentMode.hex] - file contents will be converted to hex strings.
 ///   - [FileContentMode.none] - file contents will not be included in the map.
+///   - [FileContentMode.text] - file contents will be converted to text.
 Future<Map<String, dynamic>> directoryToMap(String dirPath,
     {bool Function(String name, FileSystemEntity entity)? filter,
     FileContentMode? contentMode}) async {
@@ -43,6 +44,8 @@ Future<void> _entityToMapInternal(
         filter: filter, contentMode: contentMode);
   } else if (contentMode == FileContentMode.none) {
     map[name] = null;
+  } else if (contentMode == FileContentMode.text) {
+    map[name] = await (ent as File).readAsString();
   } else {
     var byteString = hex.encode(await (ent as File).readAsBytes());
     map[name] = byteString;
