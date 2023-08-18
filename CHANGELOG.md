@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Added `contentMode` option.
+
 ## 1.2.0
 
 - Added `noFileContents` argument.
